@@ -402,7 +402,7 @@ ___
 
 ### *10.1. The simplest Predator-Prey System*
 
-A simple robber-prey system was created by the sale of fur. discovered. We start here: Number of snow hare and lynx skins purchased by the Hudson Bay Company from 1845 to 1935.
+A simple robber-prey system was created by the sale of fur. We start here: Number of snow hare and lynx skins purchased by the Hudson Bay Company from 1845 to 1935.
 
 ![Hare-Lynx from sales](./img/Hare-Lynx.png)
 
@@ -542,7 +542,8 @@ And the trivialities:
 ___
 
 ## *13. Links*
-You find this file in the web at: [dac](https:dac.paschenda.org)
+You find this file in the web at: 
+https://github.com/YukanQ/analog-computing
 
 There are two videos according to this project.
 * **Analog Computing - Programming without a Language** - the very short one for CS50 [x](https:...)
