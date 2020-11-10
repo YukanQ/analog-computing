@@ -550,7 +550,7 @@ https://github.com/YukanQ/analog-computing
 
 There are two videos according to this project.
 * **Analog Computing - Programming without a Language** - the very short one for CS50 [digital analog computing](https://youtu.be/N8zDZByInOM)
-* and with some more details **Digital Simulation of an analog Computer** [analog computing - programming without a language](https://youtu.be/gKRJvYr9yqE)
+* and with some more details **Digital Simulation of an analog Computer** [analog computing - programming without a language](https://youtu.be/BFHZID-FXTc)
 
 and:
 * a simple addition with an analog computer Heathkit EC1: hello world <br> https://youtu.be/xeBFbKn_DvY
