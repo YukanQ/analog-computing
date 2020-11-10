@@ -549,13 +549,13 @@ You find this file at:
 https://github.com/YukanQ/analog-computing
 
 There are two videos according to this project.
-* **Analog Computing - Programming without a Language** - the very short one for CS50 [digital analog computing](https://youtu.be/N8zDZByInOM)
+* **Analog Computing - Programming without a Language** - the very short one for CS50 [digital analog computing](https://youtu.be/WlNZMHXLJbU)
 * and with some more details **Digital Simulation of an analog Computer** [analog computing - programming without a language](https://youtu.be/BFHZID-FXTc)
 
 and:
-* a simple addition with an analog computer Heathkit EC1: hello world <br> https://youtu.be/xeBFbKn_DvY
-* harmonic oscillation simulated on an analog computer GTE22<br>
-https://youtu.be/cD6qtKBeAjg 
+* a simple addition with an analog computer Heathkit EC1: [hello world](https://youtu.be/xeBFbKn_DvY)
+* [harmonic oscillation simulated on an analog computer GTE22](
+https://youtu.be/cD6qtKBeAjg) 
 
 ___
 
