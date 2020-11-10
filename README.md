@@ -31,11 +31,11 @@ a project directly related to current research
 * 7.4 We fill the table 'ic'.
 * 7.5 We start acsim, enter the number of truns n and the time step dt and run 'program'.
 * 7.6 We look at the results.
-* 7.7 and plot the results.
+* 7.7 And plot the results.
 * [8. Testing](#8.-Testing)
 * [9. Looking at the Code](#9.-Looking-at-the-Code)
 * [10. Standard examples for analog computing](#10.-Standard-examples-for-analog-computing)
-* 10.1. The simplest Predator-Prey System
+* 10.1. The most simple Predator-Prey System
 * 10.2. The Mass-Spring-Damper System
 * [11. Discussion](#11.-Discussion)
 * [12. Features of acsim](#12.-Features-of-acsim)
@@ -72,7 +72,7 @@ Now we make an analog computer out of it:
 
 With the two potentiometers we enter the numbers to be added i.e. we set the current intensity, the measuring device on the right-hand side shows the result. Usually a symbol notation is used. For the highways we have this flow diagram.
 
-![Example highway in symbols](./img/highway_symbol.png)
+![Example highway in symbols](./img/highway_symbols.png)
 
 Classical analog computer have a set of different operation units:
 
@@ -112,7 +112,11 @@ But an analog computer can do really great things:
 
 ![Example screenshot](./img/AC0176.JPG)
 
-Today there are many tools to solve dynamic problems on digital stuff: Berkeley Madonna, Vensim, Wolfram, Matlab, LabView ... And applications of System Dynamics, for example En-ROADS, climate crisis, sars crisis and so on.
+Already in 1956 a rocket was really a dynamic problem.
+
+Today there are many tools to solve dynamic problems on digital stuff: Berkeley Madonna, Vensim, Wolfram, Matlab, LabView ... 
+
+And applications of System Dynamics, for example En-ROADS, climate crisis, sars crisis and so on.
 
 ___
 
@@ -152,7 +156,7 @@ The actual calculation, i.e. the one-time step-by-step processing of the flow di
 The analog program itself is stored in a database by two tables: Table 'initial conditions' and table 'program'. The results of the simulation are also stored in this database.
 The results can then be output in tabular or graphical form.
 
-For a demonstration watch here: YOUTUBE-Link folgt 
+For a demonstration watch: https://youtu.be/N8zDZByInOM  
 
 ___
 
@@ -202,7 +206,7 @@ If we repeat the small step, we can travel to the future, but the problem is: th
 > The analog computer is operated at the control unit. This is the outer loop in the Python-program.
 
 ### *6.4 The output* 
-> of the results was mostly done either on an x-y writer or with an oscilloscope. 
+> The output of the results was mostly done either on an x-y writer or with an oscilloscope. 
 
 ![scope harmonic oscillation](./img/harm-oscillation.jpeg)
 
@@ -214,7 +218,7 @@ ___
 
 ## *7. An example how to do it: Solving a very simple differential equation with an analog computer*
 
-Let'S take this equation y''(t) = - k * y(t). One applacation of this equation is a ideal mass-spring system.
+Let's take this equation y''(t) = - k * y(t). One applacation of this equation is a ideal mass-spring system.
 
 ### *7.1. We draw the flow diagram.*
 
@@ -278,7 +282,7 @@ ___
 
 ![job table harmonic oscillation](./img/harmonic_oscillator_jobTable_T_is_1_b.jpg)
 
-4) Last not least: Plotting Lissajous figures is also e nice testing (see video).
+4) Last not least: Plotting Lissajous figures is also a nice testing (see video).
 
 ___
 
@@ -325,9 +329,9 @@ turnNo = 1`<br>`
 
 we control the number of turns and therefore the time: <br>
 Running time = (number of turns) * dt. <br>
-Important: The time scale of the programm is arbitrary and is not connected to seconds or so. The ODEs define the time scale. The user can for example choose a year or a second as time step of the program. 
+Important: The time scale of the programm is arbitrary and is not connected to seconds or so. The DEs define the time scale. The user can for example choose a year or a second as time step of the program. 
 
-The inner loop is one run through the chain of the flow diagram. We look for the changes in one time step dt.
+The inner loop is one run through the chain or the network of the flow diagram. We look for the changes in one time step dt.
 
 `def turn(turnNo, currentTime, nameJobTable):`<br>`
     stepNo = 1`<br>`
@@ -338,7 +342,6 @@ The inner loop is one run through the chain of the flow diagram. We look for the
 This inner loop calls the function 'execute':
 
 `def execute(unitType, currentTime, in1Value, in2Value, in3Value, in4Value, turnNo, unitNo, nameJobTable):`<br>`
-    # print("\nnameJobTable is", nameJobTable)`<br>`
     if unitType == 'Potentiometer':`<br>`
     elif unitType == 'Adder':`<br>`
     elif unitType == 'Inverter': # mal Faktor -1`<br>`
@@ -375,7 +378,7 @@ In the function we must look for the start condition. For example if you expand 
             createSql = 'UPDATE ' + nameJobTable + ' SET ' + outColumn + ' = ' + str(y0) + ' WHERE turnNo = 0'`<br>`
             cursor.execute(createSql)`
 
-The initial condition is the last Value for the Euler step: 
+The initial condition is the last value for the Euler step: 
 
 `# we write the initial condition to ic1, which is the last value of yl`<br>`
 createSql = 'UPDATE ic SET ic1 = ? WHERE unitNo = ?'`<br>` 
@@ -400,13 +403,13 @@ ___
 
 ## *10. Standard examples for analog computing*
 
-### *10.1. The simplest Predator-Prey System*
+### *10.1. The most simple Predator-Prey System*
 
 A simple robber-prey system was created by the sale of fur. We start here: Number of snow hare and lynx skins purchased by the Hudson Bay Company from 1845 to 1935.
 
 ![Hare-Lynx from sales](./img/Hare-Lynx.png)
 
-You know, that Canada lynxes eat snowshoe hares. Lotka-Volterra have established a system of ODEs for this purpose, 
+You know, that Canada lynxes eat snowshoe hares. Lotka-Volterra have established a system of DEs for this purpose, 
 from wikipedia.org:
 
 ![Hare-Lynx text differential equations](./img/Lotka-Volterra-Predator-Prey-equations-05.png)
@@ -417,17 +420,17 @@ These equations are represented by the following flow diagram:
 
 ![Hare-Lynx flow diagramm](./img/Lotka-Volterra-Predator-Prey-flow-diagram-01.png)
 
-The we fill table 'program' in the database:
+Then we fill table 'program' in the database:
 
 ![Hare-Lynx table program](./img/Lotka-Volterra-Predator-Prey-program-01.png)
 
-Running the program with arbitrarily chosen A, B, C, D solves the ODE-system in a qualitative manner:
+Running the program with arbitrarily chosen A, B, C, D solves the DE-system in a qualitative manner:
 
 ![Hare-Lynx plot](./img/Lotka-Volterra-Predator-Prey.jpg)
 
 We can see the typical wave shape af a predator-prey-system. Yes, I know, there are only whole animals, the curves should be stepped. But for large populations continuous curves are used.
 
-> This example shows that is possible to solve systems of ODEs with an analog computer and the program here of course. And: We do not need a special language.
+> This example shows that is possible to solve systems of DEs with an analog computer and the program here of course. And: We do not need a special language.
 
 ___
 
@@ -458,7 +461,7 @@ Of course you can use programs to simulate electronic circuits like LTspice, but
 
 ![LTSpice example](./img/Integrator-HV-Copyright-2013-Linear-Technology-Inc.jpg)
 
-In the past there have been occasional such attempts when Aplle IIe, C64 etc. were new. 
+In the past there have been occasional attempts to simulate an analog computer when Aplle IIe, C64 etc. were new. 
 
 In popular computer and electronic magazines of that time you can find things like this one from popular electronics december 1961:
 
@@ -466,10 +469,10 @@ In popular computer and electronic magazines of that time you can find things li
 
 However, they have been forgotten in the course of time. I have not researched further, it is difficult and takes a lot of time.
 
-The current book by B.Ulmann, Analog Computing, 2013, which gives a good overview of the topic 'analog computers', contains 11 pages from about total 430 pages about the simulation of analog computers. So this project has a certain importance, especially because there is an increasing interest in analog computing again.
+The current book by Bernd Ulmann, Analog Computing, 2013, which gives a good overview of the topic 'analog computers', contains 11 pages from about total 430 pages about the simulation of analog computers. So this project has a certain importance, especially because there is an increasing interest in analog computing again.
 
 One reason is the energy consumption: 
-"The most commonly cited advantage of continuous time analog computation is the energy efficiencyof using analog variables, albeit for low-precision solutions only. The reason using analog encodingsis efficient is because an analog encoding packs more data on a single wire, and because many analogoperations are cheaper compared to digital. While that case for analog is intuitive and appealing,a quantitative comparison between analog and digital encodings show analog is more efficientthan digital only for low-precision data." (Yipeng Huang, Hybrid Analog-Digital Co-Processing for Scientific Computation, dissertation COLUMBIA UNIVERSITY 2018, p.11) 
+"The most commonly cited advantage of continuous time analog computation is the energy efficiency of using analog variables, albeit for low-precision solutions only. The reason using analog encodings is efficient is because an analog encoding packs more data on a single wire, and because many analog operations are cheaper compared to digital. While that case for analog is intuitive and appealing, a quantitative comparison between analog and digital encodings show analog is more efficient than digital only for low-precision data." (Yipeng Huang, Hybrid Analog-Digital Co-Processing for Scientific Computation, dissertation COLUMBIA UNIVERSITY 2018, p. 11) 
 
 This property leads directly to a current research area:
 
@@ -527,12 +530,12 @@ To-do:
 __Look again to the advantages of analog computing and compare with the simulation:__
 * Programming means to change the structure of the computer.
 * That's all to do, the rest will be done by the system.
-* Another point of view: Everything is a control loop. This means solving ODEs, that's the job of an analog computer.
+* Another point of view: Everything is a control loop. This means solving DEs, that's the job of an analog computer.
 * Impossible on digital stuff: A analog computer scales flat in inflection to the computing time.
 * Not worth the trouble: You can not hack an analog computer.
 
 And the trivialities:
-* Implement Interactivity: Turning the potentiometer in the current execution
+* Implement Interactivity: Turning the potentiometer in the current execution.
 * Implement the HALT-function
 * Use multithreading
 * Div. improvements in the source code
@@ -542,11 +545,11 @@ And the trivialities:
 ___
 
 ## *13. Links*
-You find this file in the web at: 
+You find this file at: 
 https://github.com/YukanQ/analog-computing
 
 There are two videos according to this project.
-* **Analog Computing - Programming without a Language** - the very short one for CS50 [x](https:...)
+* **Analog Computing - Programming without a Language** - the very short one for CS50 [digital analog computing](https://youtu.be/N8zDZByInOM)
 * and with some more details **Digital Simulation of an analog Computer** [x](https:...)
 
 and:
