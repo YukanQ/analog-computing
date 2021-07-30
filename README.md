@@ -560,12 +560,12 @@ https://youtu.be/cD6qtKBeAjg)
 ___
 
 ## *14. Status*
-The Project for CS50 is _finished._
+The Project for Harvard CS50 is _finished._
 
 ___
 
 ## *15. Credits*
-Many thanks to David J. Malan, Brian Yu, Doug Lloyd and all the others from CS50. 
+Many thanks to David J. Malan, Brian Yu, Doug Lloyd and all the others from Harvard CS50. 
 
 ___
 
